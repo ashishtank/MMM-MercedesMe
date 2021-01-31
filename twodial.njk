@@ -1,0 +1,30 @@
+<div id='mmm-mercedes-me-login' style='display:none'>
+    <a href="/MMM-MercedesMe/auth">Authenticate</a>
+</div>
+<div id='mmm-mercedes-me-display' class="two-dial-wrapper">
+    <div class="single-chart">
+      <svg viewBox="0 0 36 36" class="circular-chart orange">
+        <path class="circle-bg" d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <path class="circle" id="fuelpath{{idSuffix}}" stroke-dasharray="30, 100" d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" id="percent{{idSuffix}}" class="percentage">...</text>
+      </svg>
+    </div>
+    <div class="single-chart">
+      <svg viewBox="0 0 36 36" class="circular-chart green">
+        <path class="circle-bg" d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <path class="circle" id="rangepath{{idSuffix}}" stroke-dasharray="60, 100" d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" id="range{{idSuffix}}" class="percentage">...</text>
+        <text x="18" y="27" class="kms">kms</text>
+      </svg>
+    </div>
+</div>
+<!-- Uncomment the line below to see the contents of the `current` object. -->
+<!-- <div style="word-wrap:break-word" class="xsmall dimmed">{{carData | dump}}</div> -->

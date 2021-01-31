@@ -1,0 +1,22 @@
+{
+  "name": "Magic-Mirror-Module-MercedesMe",
+  "version": "1.0.0",
+  "description": "Mercedes Me Module for Magic Mirror.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishtank/MMM-MercedesMe"
+  },
+  "keywords": [
+    "magic mirror",
+    "smart mirror",
+    "mercedes",
+    "module"
+  ],
+  "author": "Ashish Tank",
+  "license": "MIT",
+  "bugs": {
+    "url": "git+https://github.com/ashishtank/MMM-MercedesMe/issues"
+  },
+  "homepage": "git+https://github.com/ashishtank/MMM-MercedesMe#readme",
+  "dependencies": {}
+}
