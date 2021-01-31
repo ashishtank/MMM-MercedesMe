@@ -117,7 +117,6 @@ module.exports = NodeHelper.create({
         method: 'GET',
         headers: {
           'User-Agent': 'MagicMirror',
-          //'Authorization': 'Bearer 2c2c222c-e123-4123-v123-2c2c222c2c22'
           'Authorization': 'Bearer ' + this.authClient.access_token
         }
       };
