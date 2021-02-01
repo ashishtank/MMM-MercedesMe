@@ -177,7 +177,8 @@ After configuring like shown above, run Magic Mirror
 3. It will also show you consent screen for electice or vehicle status based on your vehicle type
 ![MMM-MercedesMe Screenshot](screenshots/consent.png?raw=true "Consent screen")
 
-4. Once you click `Allow` it should redirect back to Magic Mirror and should show you Mercedes Me data based on your display style
+4. Once you click `Allow` it should redirect back to Magic Mirror and should show you Mercedes Me data based on your display style.
+
 ![MMM-MercedesMe Screenshot](screenshots/twodial.gif?raw=true "Title 2")
 
 
