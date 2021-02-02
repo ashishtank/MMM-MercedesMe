@@ -6,7 +6,7 @@
  */
 Module.register("MMM-MercedesMe", {
   
-  requiresVersion: '2.1.0',
+  requiresVersion: '2.14.0',
   // Default module config.
   defaults: {
     text: 'Hello Mercedes !',
