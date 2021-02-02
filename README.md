@@ -11,6 +11,7 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 git clone https://github.com/ashishtank/MMM-MercedesMe.git
 ```` 
 2. No need for npm install as it uses depencies from Magic Mirror<sup>2</sup> core.
+3. You need minimum Magic Mirror version `2.14.0` for this module to work.
 
 ## Using the module
 
