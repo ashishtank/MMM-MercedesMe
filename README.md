@@ -57,7 +57,7 @@ modules: [
 6. In console it should show you app with electic vehicle or vehicle subscription as below with `client id` and `client secret`
 ![MMM-MercedesMe Screenshot](screenshots/appwithevstatus.png?raw=true "App with client id and client secret")
 
-7. We will need to add correct redirect url here, click on + button next to redirect urls and redirect url `http://localhost:8080/MMM-MecedesMe/callback`. This is local url of Magic Mirror as we will get token on mirror only.
+7. We will need to add correct redirect url here, click on + button next to redirect urls and redirect url `http://localhost:8080/MMM-MercedesMe/callback`. This is local url of Magic Mirror as we will get token on mirror only.
 ![MMM-MercedesMe Screenshot](screenshots/appwithcallbackurl.png?raw=true "App with redirect url")
 
 8. Press Ok icon as shown in image above to add the callback url to app.
