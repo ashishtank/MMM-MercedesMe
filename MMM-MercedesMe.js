@@ -139,14 +139,17 @@ Module.register("MMM-MercedesMe", {
           self.initTicks();
         }
         else
-          self.updateDom();
+          // self.updateDom();
+          document.getElementById('range' + self.idSuffix).innerHTML = payload.range.value;
+          document.getElementById('fuelLevel' + self.idSuffix).innerHTML = payload.fuelLevel.value;
       }
       else {
         document.getElementById('fuelpath' + self.idSuffix).setAttribute("stroke-dasharray", payload.fuelLevel.value + ", 100");
         document.getElementById('percent' + self.idSuffix).innerHTML = '&nbsp;' + payload.fuelLevel.value + '%';
         document.getElementById('range' + self.idSuffix).innerHTML = payload.range.value;
         var rangePercent = (payload.range.value * 100 / self.config.maxRange);
-        document.getElementById('rangepath' + self.idSuffix).setAttribute("stroke-dasharray", rangePercent + ", 100");
+        document.getElementById('rangepath' + self.idSuffix).setAttribute("stroke-dasharray", Math.trunc(rangePercent) + ", 100");
+        document.getElementById('fuelLevel' + self.idSuffix).innerHTML = payload.fuelLevel.value;
       }
     }
   },

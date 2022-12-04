@@ -18,5 +18,7 @@
     "url": "git+https://github.com/ashishtank/MMM-MercedesMe/issues"
   },
   "homepage": "git+https://github.com/ashishtank/MMM-MercedesMe#readme",
-  "dependencies": {}
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
