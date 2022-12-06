@@ -15,10 +15,10 @@ module.exports = NodeHelper.create({
    * Default config
    */
   defaults: {
-    scope: 'mb:vehicle:mbdata:evstatus offline_access',
+    scope: 'openid offline_access mb:vehicle:mbdata:evstatus',
     vehicleType: 'Electric',
-    authUrl: `https://id.mercedes-benz.com/as/authorization.oauth2`,
-    tokenUrl: `https://id.mercedes-benz.com/as/token.oauth2`,
+    authUrl: `https://ssoalpha.dvb.corpinter.net/v1/auth`,
+    tokenUrl: `https://ssoalpha.dvb.corpinter.net/v1/token`,
     debug: false,
     vehicleDataUrl: "https://api.mercedes-benz.com/vehicledata/v2/vehicles/VEHICLE_ID/containers/VEHICLE_STATUS",
     redirect_uri: 'http://localhost:8080/MMM-MercedesMe/callback'
@@ -107,7 +107,13 @@ module.exports = NodeHelper.create({
       var carRequest = payload;
       self.debug('Vehicle data url ' + apiUrl);
       if (this.authClient === null) return;
-      if (this.authClient.isExpired()) return;
+      if (this.authClient.isExpired()){
+        this.authClient.refreshToken(() => {
+          self.sendSocketNotification('GET_CAR_DATA', carRequest);
+        });
+        return;
+
+      };
       if (apiUrl.length === 0) {
         self.sendSocketNotification('GET_CONFIG');
         return;
@@ -126,6 +132,7 @@ module.exports = NodeHelper.create({
           if (response.statusCode == 200) {
             carRequest = Object.assign({}, carRequest, self.convertToDisplayObj(body));
             self.sendSocketNotification("UPDATE_CAR_DATA", carRequest);
+            console.log('carRequest response:', carRequest)
           }
           else {
             console.log(response.statusCode + ' - ' + response.statusMessage);

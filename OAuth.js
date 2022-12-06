@@ -1,6 +1,6 @@
 const fs = require('fs');
 const request = require('request');
-const EXPIRYTHRESHOLD = 5000;
+const EXPIRYTHRESHOLD = 3300;
 class OAuth {
   constructor(config) {
     this.client_id = config.client_id;
@@ -22,16 +22,21 @@ class OAuth {
 
   getToken(authCode, callback) {
     var self = this;
-    const tokenUrl = this.tokenUrl + `?grant_type=authorization_code&code=~${authCode}&redirect_uri=${this.redirectUri}`;
     const options = {
-      url: tokenUrl,
+      url: this.tokenUrl,
       method: 'POST',
       headers: {
         'User-Agent': 'MMM-MercedesMe'
       },
+      auth: {
+        user: this.client_id,
+        pass: this.client_secret
+      },
       form: {
-        client_id: this.client_id,
-        client_secret: this.client_secret
+        grant_type: 'authorization_code',
+        code: authCode,
+        redirect_uri: this.redirectUri,
+        scope: this.scope
       }
     };
     request(options, function (error, response, body) {
@@ -47,16 +52,18 @@ class OAuth {
   refreshToken(cb) {
     console.log('refreshing the token');
     var self = this;
-    const refreshUrl = this.tokenUrl + `?grant_type=refresh_token&redirect_uri=${this.redirectUri}`;
     const options = {
-      url: refreshUrl,
+      url: this.tokenUrl,
       method: 'POST',
       headers: {
         'User-Agent': 'MMM-MercedesMe'
       },
+      auth: {
+        user: this.client_id,
+        pass: this.client_secret
+      },
       form: {
-        client_id: this.client_id,
-        client_secret: this.client_secret,
+        grant_type: 'refresh_token',
         refresh_token: this.refresh_token
       }
     };
@@ -101,6 +108,8 @@ class OAuth {
   }
 
   isExpired() {
+    console.log(`isExpired date:  ${(new Date().getTime() > (this.expiry_time - EXPIRYTHRESHOLD))}`)
+    console.log(`Expiry_time: ${this.expiry_time}, datenow: ${new Date().getTime()}, threshold: ${EXPIRYTHRESHOLD}`)
     if (isNullOrUndefined(this.access_token) || this.access_token.length === 0) return true;
     return (new Date().getTime() > (this.expiry_time - EXPIRYTHRESHOLD));
   }
